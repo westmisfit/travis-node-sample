@@ -1,0 +1,30 @@
+{
+  "name": "travis-node-sample",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "istanbul cover ./node_modules/mocha/bin/_mocha -- -R spec"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/forhot2000/travis-node-sample.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/forhot2000/travis-node-sample/issues"
+  },
+  "homepage": "https://github.com/forhot2000/travis-node-sample",
+  "dependencies": {
+    "express": "^4.10.4",
+    "log4js": "^0.6.21"
+  },
+  "devDependencies": {
+    "coveralls": "^2.11.2",
+    "mocha": "^2.2.4",
+    "should": "^6.0.1"
+  }
+}
