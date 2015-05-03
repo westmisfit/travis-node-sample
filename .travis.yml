@@ -1,0 +1,21 @@
+language: node_js
+node_js: '0.10'
+
+# install:
+# - npm install
+
+script:
+- ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha --report lcovonly -- -R spec
+after_script:
+- cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
+- rm -rf ./coverage
+
+branches:
+  only:
+  - master
+  - develop
+cache:
+  directories:
+  - node_modules
+notifications:
+  hipchat: C5Ta9DcFxSNftnD2ZMtfRJN2SbUtRLuGDQy6JXmI@1467331
