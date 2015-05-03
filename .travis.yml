@@ -1,11 +1,19 @@
 language: node_js
 node_js: '0.10'
+env:
+  global:
+  - MISFIT_CLOUD_BUILDER_SERVER="52.6.42.144"
+  - MISFIT_CLOUD_BUILDER_USER="misfit"
+  - MISFIT_CLOUD_BUILDER_PASSWORD="User@123"
 
 # install:
 # - npm install
 
+before_script:
+- curl http://$MISFIT_CLOUD_BUILDER_SERVER/downloads/misfit-cloud-builder-client-linux-386.tar.gz | tar xzv
 script:
 - ./node_modules/.bin/istanbul cover ./node_modules/.bin/_mocha tests/** --report lcovonly -- -R spec
+- ./misfit-cloud-builder-client --travis
 after_script:
 - cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js
 - rm -rf ./coverage

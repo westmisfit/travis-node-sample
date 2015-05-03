@@ -1,0 +1,7 @@
+.git
+.gitignore
+.travis.yml
+.coveralls.yml
+node_modules
+npm-debug.log
+coverage
