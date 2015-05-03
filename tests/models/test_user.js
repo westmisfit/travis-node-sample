@@ -1,5 +1,5 @@
 var should = require("should")
-var User = require("../lib/models/user")
+var User = require("../../lib/models/user")
 
 describe('testUser', function () {
 
